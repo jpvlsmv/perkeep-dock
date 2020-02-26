@@ -26,6 +26,7 @@ help:
 
 build:
 	@echo "building ${BIN_NAME} ${VERSION}"
+	go build -ldflags "-X github.com/jpvlsmv/perkeep-dock/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/jpvlsmv/perkeep-dock/version.BuildDate=${BUILD_DATE}" -o bin/${BIN_NAME}
 
 get-deps:
 	echo  dep ensure
