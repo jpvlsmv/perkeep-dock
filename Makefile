@@ -26,16 +26,12 @@ help:
 
 build:
 	@echo "building ${BIN_NAME} ${VERSION}"
-	@echo "GOPATH=${GOPATH}"
-	go build -ldflags "-X github.com/jpvlsmv/perkeep-dock/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/jpvlsmv/perkeep-dock/version.BuildDate=${BUILD_DATE}" -o bin/${BIN_NAME}
 
 get-deps:
-	dep ensure
+	echo  dep ensure
 
 build-alpine:
 	@echo "building ${BIN_NAME} ${VERSION}"
-	@echo "GOPATH=${GOPATH}"
-	go build -ldflags '-w -linkmode external -extldflags "-static" -X github.com/jpvlsmv/perkeep-dock/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/jpvlsmv/perkeep-dock/version.BuildDate=${BUILD_DATE}' -o bin/${BIN_NAME}
 
 package:
 	@echo "building image ${BIN_NAME} ${VERSION} $(GIT_COMMIT)"
@@ -57,5 +53,5 @@ clean:
 	@test ! -e bin/${BIN_NAME} || rm bin/${BIN_NAME}
 
 test:
-	go test ./...
+	echo go test ./...
 
